@@ -52,6 +52,21 @@ This dbt project builds on two upstream extraction pipelines:
   <li><strong>Source:</strong> Amplitude Export API</li>
   <li><strong>Data characteristics:</strong> Event-level JSON, high volume, nested properties</li>
 </ul>
+<p>
+The schema below illustrates an example relational structure derived from raw Amplitude
+event data. This diagram was used as a <strong>reference point when refactoring exploratory
+SQL into layered dbt staging, intermediate, and mart models</strong>.
+</p>
+
+<p>
+<img
+  src="https://github.com/user-attachments/assets/c09bd393-3a74-4ebe-a08e-9d2703e049b8"
+  alt="Amplitude example downstream schema"
+  width="100%"
+/>
+</p>
+
+
 
 <h3>Mailchimp — Marketing Analytics</h3>
 
@@ -62,6 +77,19 @@ This dbt project builds on two upstream extraction pipelines:
   <li><strong>Source:</strong> Mailchimp Marketing API</li>
   <li><strong>Data characteristics:</strong> Campaign metadata and email-level engagement data</li>
 </ul>
+<p>
+The schema below shows an example downstream structure for Mailchimp campaign and
+email activity data. This schema was used as a <strong>guiding reference when refactoring
+raw extracts into dbt staging, intermediate, and mart models</strong>.
+</p>
+
+<p>
+<img
+  src="https://github.com/user-attachments/assets/62838eb1-2130-4091-8cbc-8c02806d0a85"
+  alt="Mailchimp example downstream schema"
+  width="100%"
+/>
+</p>
 
 <p>
 Raw JSON data is extracted via Python, uploaded to S3, and ingested into the data warehouse before being transformed with dbt.
