@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: mart_my_final_table
+    description: ""
+    columns:
+      - name: custkey
+        data_type: number
+        description: ""
+
+      - name: custname
+        data_type: varchar
+        description: ""
+
+      - name: region_name
+        data_type: varchar
+        description: ""
+
+      - name: nation_name
+        data_type: varchar
+        description: ""
+
+      - name: mktsegment
+        data_type: varchar
+        description: ""
+
+      - name: first_order_date
+        data_type: date
+        description: ""
+
+      - name: last_order_date
+        data_type: date
+        description: ""
+
+      - name: days_since_last_order
+        data_type: number
+        description: ""
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: non_returned_orders
+        data_type: number
+        description: ""
+
+      - name: return_rate
+        data_type: number
+        description: ""
+
+      - name: total_revenue
+        data_type: number
+        description: ""
+
+      - name: avg_non_returned_order_value
+        data_type: number
+        description: ""
+
+      - name: avg_last3_revenue
+        data_type: number
+        description: ""
+
+      - name: revenue_trend
+        data_type: varchar
+        description: ""
+
+      - name: customer_tenure_days
+        data_type: number
+        description: ""
+
+      - name: is_active
+        data_type: boolean
+        description: ""
+
+      - name: is_high_value
+        data_type: boolean
+        description: ""
+
+      - name: is_churn_risk
+        data_type: boolean
+        description: ""

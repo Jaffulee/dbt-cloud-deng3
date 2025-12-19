@@ -1,0 +1,105 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: raw data dump from our sandwich business
+    database: raw
+    tables:
+      - name: customers
+        description: dimension table of our customers
+        columns:
+          - name: id
+            data_type: number
+            description: "{{ doc('customer_id') }}"
+          - name: first_name
+            data_type: varchar
+            description: ""
+          - name: last_name
+            data_type: varchar
+            description: ""
+
+      - name: items
+        description: ""
+        columns:
+          - name: id
+            data_type: varchar
+            description: ""
+          - name: order_id
+            data_type: varchar
+            description: ""
+          - name: sku
+            data_type: varchar
+            description: ""
+
+      - name: orders
+        description: fact table of orders recieved
+        columns:
+          - name: id
+            data_type: number
+            description: pk
+          - name: user_id
+            data_type: number
+            description: foreign key from customers table
+          - name: order_date
+            data_type: date
+            description: ""
+          - name: ""
+            data_type: varchar
+            description: ""
+          - name: _etl_loaded_at
+            data_type: timestamp_ntz
+            description: ""
+
+      - name: products
+        description: ""
+        columns:
+          - name: sku
+            data_type: varchar
+            description: ""
+          - name: name
+            data_type: varchar
+            description: ""
+          - name: type
+            data_type: varchar
+            description: ""
+          - name: price
+            data_type: number
+            description: ""
+          - name: description
+            data_type: varchar
+            description: ""
+
+      - name: stores
+        description: ""
+        columns:
+          - name: id
+            data_type: varchar
+            description: ""
+          - name: name
+            data_type: varchar
+            description: ""
+          - name: opened_at
+            data_type: timestamp_ntz
+            description: ""
+          - name: tax_rate
+            data_type: number
+            description: ""
+
+      - name: supplies
+        description: ""
+        columns:
+          - name: id
+            data_type: varchar
+            description: ""
+          - name: name
+            data_type: varchar
+            description: ""
+          - name: cost
+            data_type: number
+            description: ""
+          - name: perishable
+            data_type: boolean
+            description: ""
+          - name: sku
+            data_type: varchar
+            description: ""

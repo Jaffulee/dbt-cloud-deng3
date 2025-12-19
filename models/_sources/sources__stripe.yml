@@ -1,0 +1,31 @@
+version: 2 #always start with this, dbt thing for how yml is structured
+
+sources: #generated with __sources
+  - name: stripe
+    description: the raw data dump from our stripe account
+    database: raw
+    tables:
+      - name: payment
+        description: ""
+        columns:
+          - name: id
+            data_type: number
+            description: primary key of the table
+          - name: orderid
+            data_type: number
+            description: foreign key from order table
+          - name: paymentmethod
+            data_type: varchar
+
+          - name: status
+            data_type: varchar
+
+          - name: amount
+            data_type: number
+
+          - name: created
+            data_type: date
+
+          - name: _batched_at
+            data_type: timestamp_ntz
+

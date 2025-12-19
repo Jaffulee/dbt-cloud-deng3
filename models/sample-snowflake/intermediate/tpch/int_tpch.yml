@@ -1,0 +1,255 @@
+version: 2
+
+models:
+  - name: int_avg_last3_revenue
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: avg_last3_revenue
+        data_type: number
+        description: ""
+
+  - name: int_tpch_first_and_last_order_date
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: first_order_date
+        data_type: date
+        description: ""
+
+      - name: last_order_date
+        data_type: date
+        description: ""
+
+  - name: int_tpch_customer_enriched
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: nation_key
+        data_type: number
+        description: ""
+
+      - name: nation_name
+        data_type: varchar
+        description: ""
+
+      - name: region_name
+        data_type: varchar
+        description: ""
+
+      - name: market_segment
+        data_type: varchar
+        description: ""
+
+      - name: first_order_date
+        data_type: date
+        description: ""
+
+      - name: last_order_date
+        data_type: date
+        description: ""
+
+  - name: int_customer_order_summary
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: non_returned_orders
+        data_type: number
+        description: ""
+
+      - name: total_revenue
+        data_type: number
+        description: ""
+
+      - name: avg_non_returned_order_value
+        data_type: number
+        description: ""
+
+      - name: order_keys
+        data_type: array
+        description: ""
+
+      - name: avg_last3_revenue
+        data_type: number
+        description: ""
+
+  - name: int_customer_overview
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: customer_name
+        data_type: varchar
+        description: ""
+
+      - name: nation_name
+        data_type: varchar
+        description: ""
+
+      - name: region_name
+        data_type: varchar
+        description: ""
+
+      - name: market_segment
+        data_type: varchar
+        description: ""
+
+      - name: first_order_date
+        data_type: date
+        description: ""
+
+      - name: last_order_date
+        data_type: date
+        description: ""
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: non_returned_orders
+        data_type: number
+        description: ""
+
+      - name: total_revenue
+        data_type: number
+        description: ""
+
+      - name: avg_non_returned_order_value
+        data_type: number
+        description: ""
+
+      - name: order_keys
+        data_type: array
+        description: ""
+
+      - name: avg_last3_revenue
+        data_type: number
+        description: ""
+
+      - name: reference_date
+        data_type: date
+        description: ""
+
+      - name: revenue_over_order
+        data_type: number
+        description: ""
+
+  - name: int_ranked_customers_by_revenue
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: number
+        description: ""
+
+      - name: revenue
+        data_type: number
+        description: ""
+
+      - name: rnk
+        data_type: number
+        description: ""
+
+  - name: int_tpch_lineitem_enriched
+    description: ""
+    columns:
+      - name: order_item_key
+        data_type: varchar
+        description: ""
+
+      - name: order_key
+        data_type: number
+        description: ""
+
+      - name: part_key
+        data_type: number
+        description: ""
+
+      - name: supplier_key
+        data_type: number
+        description: ""
+
+      - name: line_number
+        data_type: number
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: extended_price
+        data_type: number
+        description: ""
+
+      - name: discount_percentage
+        data_type: number
+        description: ""
+
+      - name: tax_rate
+        data_type: number
+        description: ""
+
+      - name: return_flag
+        data_type: varchar
+        description: ""
+
+      - name: status_code
+        data_type: varchar
+        description: ""
+
+      - name: ship_date
+        data_type: date
+        description: ""
+
+      - name: commit_date
+        data_type: date
+        description: ""
+
+      - name: receipt_date
+        data_type: date
+        description: ""
+
+      - name: ship_instructions
+        data_type: varchar
+        description: ""
+
+      - name: ship_mode
+        data_type: varchar
+        description: ""
+
+      - name: comment
+        data_type: varchar
+        description: ""
+
+      - name: return_flag_is_n
+        data_type: boolean
+        description: ""
+
+      - name: revenue
+        data_type: number
+        description: ""
+
+      - name: non_returned_order_value
+        data_type: number
+        description: ""

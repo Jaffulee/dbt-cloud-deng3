@@ -1,0 +1,480 @@
+version: 2
+
+models:
+  - name: int_mailchimp_campaign_delivery_status
+    description: "Contains delivery status information for Mailchimp campaigns."
+    columns:
+      - name: delivery_status_id
+        data_type: number
+        description: "Unique identifier for the delivery status record."
+        data_tests:
+          - unique
+          - not_null
+        
+      - name: can_cancel
+        data_type: boolean
+        description: "Indicates whether the campaign can be canceled."
+
+      - name: emails_canceled
+        data_type: number
+        description: "Number of emails that were canceled before sending."
+
+      - name: emails_sent
+        data_type: number
+        description: "Total number of emails successfully sent."
+
+      - name: enabled
+        data_type: boolean
+        description: "Indicates if the delivery status is currently enabled."
+
+      - name: status
+        data_type: varchar
+        description: "Current delivery status of the campaign."
+
+  - name: int_mailchimp_campaign_recipients
+    description: "Details of recipients associated with each Mailchimp campaign."
+    columns:
+      - name: recipients_id
+        data_type: number
+        description: "Unique identifier for the recipients record."
+        data_tests:
+          - unique
+          - not_null
+          
+      - name: list_id
+        data_type: varchar
+        description: "ID of the mailing list associated with the campaign."
+
+      - name: list_is_active
+        data_type: boolean
+        description: "Indicates if the mailing list is currently active."
+
+      - name: list_name
+        data_type: varchar
+        description: "Name of the mailing list."
+
+      - name: recipient_count
+        data_type: number
+        description: "Number of recipients in the mailing list."
+
+  - name: int_mailchimp_campaign_reports_ecommerce
+    description: "E-commerce performance metrics from Mailchimp campaign reports."
+    columns:
+      - name: ecommerce_id
+        data_type: number
+        description: "Unique identifier for the ecommerce report."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: total_orders
+        data_type: number
+        description: "Total number of orders generated from the campaign."
+
+      - name: total_revenue
+        data_type: number
+        description: "Total revenue generated from the campaign."
+
+      - name: total_spent
+        data_type: number
+        description: "Total amount spent by users from the campaign."
+
+  - name: int_mailchimp_campaign_reports
+    description: "Summary statistics from Mailchimp campaign reports."
+    columns:
+      - name: report_summary_id
+        data_type: number
+        description: "Unique identifier for the campaign report."
+        data_tests:
+          - unique
+          - not_null
+          
+      - name: click_rate
+        data_type: float
+        description: "Proportion of recipients who clicked on a link."
+
+      - name: clicks
+        data_type: number
+        description: "Total number of link clicks in the campaign."
+
+      - name: ecommerce_id
+        data_type: number
+        description: "Reference to the associated ecommerce report."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_reports_ecommerce')
+              field: ecommerce_id
+              config:
+                severity: warn
+            
+      - name: open_rate
+        data_type: float
+        description: "Proportion of recipients who opened the email."
+
+      - name: opens
+        data_type: number
+        description: "Total number of email opens."
+
+      - name: subscriber_clicks
+        data_type: number
+        description: "Number of unique subscribers who clicked."
+
+      - name: unique_opens
+        data_type: number
+        description: "Number of unique recipients who opened the email."
+
+  - name: int_mailchimp_campaign_settings
+    description: "Configuration settings for Mailchimp campaigns."
+    columns:
+      - name: settings_id
+        data_type: number
+        description: "Unique identifier for the settings record."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: authenticate
+        data_type: boolean
+        description: "Indicates whether email authentication is enabled."
+
+      - name: auto_footer
+        data_type: boolean
+        description: "Indicates whether footers are added automatically."
+
+      - name: auto_tweet
+        data_type: boolean
+        description: "Indicates whether the campaign is auto-tweeted."
+
+      - name: drag_and_drop
+        data_type: boolean
+        description: "Indicates whether the drag-and-drop editor was used."
+
+      - name: fb_comments
+        data_type: boolean
+        description: "Indicates whether Facebook comments are enabled."
+
+      - name: from_name
+        data_type: varchar
+        description: "The sender name shown in the campaign email."
+
+      - name: inline_css
+        data_type: boolean
+        description: "Indicates if CSS styles are inlined in the email."
+
+      - name: preview_text
+        data_type: varchar
+        description: "Text shown as a preview in email clients."
+
+      - name: reply_to
+        data_type: varchar
+        description: "Email address for replies to the campaign."
+
+      - name: subject_line
+        data_type: varchar
+        description: "Subject line of the campaign email."
+
+      - name: template_id
+        data_type: number
+        description: "Identifier for the email template used."
+
+      - name: timewarp
+        data_type: boolean
+        description: "Indicates whether Timewarp scheduling is enabled."
+
+      - name: title
+        data_type: varchar
+        description: "Title or internal name of the campaign."
+
+      - name: use_conversation
+        data_type: boolean
+        description: "Indicates if conversation view is enabled for replies."
+
+  - name: int_mailchimp_campaign_tracking
+    description: "Tracking configurations for Mailchimp campaigns."
+    columns:
+      - name: tracking_id
+        data_type: number
+        description: "Unique identifier for tracking configuration."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: ecomm360
+        data_type: boolean
+        description: "Indicates if e-commerce tracking is enabled."
+
+      - name: goal_tracking
+        data_type: boolean
+        description: "Indicates if goal tracking is enabled."
+
+      - name: html_clicks
+        data_type: boolean
+        description: "Indicates if HTML click tracking is enabled."
+
+      - name: opens
+        data_type: boolean
+        description: "Indicates if open tracking is enabled."
+
+      - name: text_clicks
+        data_type: boolean
+        description: "Indicates if text email click tracking is enabled."
+
+  - name: int_mailchimp_campaign
+    description: "Core campaign metadata from Mailchimp."
+    columns:
+      - name: created_campaign_id
+        data_type: number
+        description: "Unique identifier for the created campaign."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_archive_url
+        data_type: varchar
+        description: "URL to the public archive of the campaign."
+
+      - name: content_type
+        data_type: varchar
+        description: "Content format of the campaign (e.g., template, plaintext)."
+
+      - name: create_time
+        data_type: timestamp_ntz
+        description: "Timestamp when the campaign was created."
+
+      - name: delivery_status_id
+        data_type: number
+        description: "Reference to the campaign's delivery status."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_delivery_status')
+              field: delivery_status_id
+              config:
+                severity: warn
+            
+
+      - name: emails_sent
+        data_type: number
+        description: "Total number of emails sent in the campaign."
+
+      - name: campaign_id
+        data_type: varchar
+        description: "Mailchimp-generated campaign identifier."
+
+      - name: campaign_long_archive_url
+        data_type: varchar
+        description: "Extended archive URL for the campaign."
+
+      - name: needs_block_refresh
+        data_type: boolean
+        description: "Indicates if block refresh is required."
+
+      - name: recipients_id
+        data_type: number
+        description: "Reference to the recipients list."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_recipients')
+              field: recipients_id
+              config:
+                severity: warn
+            
+
+      - name: report_summary_id
+        data_type: number
+        description: "Reference to the associated report summary."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_reports')
+              field: report_summary_id
+              config:
+                severity: warn
+
+      - name: resendable
+        data_type: number
+        description: "Indicates whether the campaign can be resent."
+
+      - name: send_time
+        data_type: timestamp_ntz
+        description: "Timestamp when the campaign was sent."
+
+      - name: settings_id
+        data_type: number
+        description: "Reference to the campaign's settings."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_settings')
+              field: settings_id
+              config:
+                severity: warn
+
+      - name: campaign_status
+        data_type: varchar
+        description: "Current status of the campaign (e.g., sent, scheduled)."
+
+      - name: tracking_id
+        data_type: number
+        description: "Reference to the campaign's tracking settings."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_tracking')
+              field: tracking_id
+              config:
+                severity: warn
+
+      - name: campaign_type
+        data_type: varchar
+        description: "Type of campaign (e.g., regular, automated)."
+
+      - name: web_id
+        data_type: number
+        description: "Numeric ID for use in web URLs."
+
+  - name: int_mailchimp_email_activity
+    description: "Email-level engagement activity from Mailchimp campaigns."
+    columns:
+      - name: created_email_id
+        data_type: number
+        description: "Unique identifier for the created email record."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: action
+        data_type: varchar
+        description: "The action taken by the user (e.g., open, click)."
+
+      - name: campaign_id
+        data_type: varchar
+        description: "Reference to the campaign that generated the email."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign')
+              field: campaign_id
+              config:
+                severity: warn
+
+      - name: email_address
+        data_type: varchar
+        description: "Recipient's email address."
+
+      - name: email_id
+        data_type: varchar
+        description: "Mailchimp identifier for the email."
+
+      - name: email_ip
+        data_type: varchar
+        description: "IP address from which the email action was taken."
+
+      - name: list_id
+        data_type: varchar
+        description: "ID of the list to which the recipient belongs."
+
+      - name: list_is_active
+        data_type: boolean
+        description: "Indicates if the list is currently active."
+
+      - name: email_timestamp
+        data_type: timestamp_ntz
+        description: "Timestamp of the email-related event."
+
+      - name: email_url
+        data_type: varchar
+        description: "URL clicked or interacted with in the email."
+
+  - name: int_mailchimp_parse_json_cte
+    description: "Parsed JSON staging model for breaking down campaign fields into normalized records."
+    columns:
+      - name: created_campaign_id
+        data_type: number
+        description: "Unique identifier for the created campaign."
+        data_tests:
+          - unique
+          - not_null
+
+      - name: campaign_json
+        data_type: variant
+        description: "Raw JSON structure of the campaign."
+
+      - name: delivery_status_id
+        data_type: number
+        description: "Reference to the delivery status entity."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_delivery_status')
+              field: delivery_status_id
+              config:
+                severity: warn
+
+      - name: delivery_status_json
+        data_type: variant
+        description: "Raw JSON structure of the delivery status."
+
+      - name: recipients_id
+        data_type: number
+        description: "Reference to the recipients entity."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_recipients')
+              field: recipients_id
+              config:
+                severity: warn
+
+      - name: recipients_json
+        data_type: variant
+        description: "Raw JSON structure of the recipients information."
+
+      - name: report_summary_id
+        data_type: number
+        description: "Reference to the report summary entity."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_reports')
+              field: report_summary_id
+              config:
+                severity: warn
+
+      - name: report_summary_json
+        data_type: variant
+        description: "Raw JSON structure of the report summary."
+
+      - name: ecommerce_id
+        data_type: number
+        description: "Reference to the ecommerce report."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_reports_ecommerce')
+              field: ecommerce_id
+              config:
+                severity: warn
+
+      - name: ecommerce_json
+        data_type: variant
+        description: "Raw JSON structure of the ecommerce data."
+
+      - name: settings_id
+        data_type: number
+        description: "Reference to the settings entity."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_settings')
+              field: settings_id
+              config:
+                severity: warn
+
+      - name: settings_json
+        data_type: variant
+        description: "Raw JSON structure of the settings."
+
+      - name: tracking_id
+        data_type: number
+        description: "Reference to the tracking configuration."
+        data_tests:
+          - relationships:
+              to: ref('int_mailchimp_campaign_tracking')
+              field: tracking_id
+              config:
+                severity: warn
+
+      - name: tracking_json
+        data_type: variant
+        description: "Raw JSON structure of the tracking configuration."

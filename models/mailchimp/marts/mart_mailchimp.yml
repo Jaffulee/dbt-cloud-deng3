@@ -1,0 +1,117 @@
+version: 2
+
+models:
+  - name: mart_mailchimp_my_amazing_martin_for_reports_and_ecommerce
+    description: ""
+    columns:
+      - name: created_campaign_id
+        data_type: number
+        description: "Unique identifier for the created campaign."
+
+      - name: campaign_archive_url
+        data_type: varchar
+        description: "URL to the public archive of the campaign."
+
+      - name: content_type
+        data_type: varchar
+        description: "Content format of the campaign (e.g., template, plaintext)."
+
+      - name: create_time
+        data_type: timestamp_ntz
+        description: "Timestamp when the campaign was created."
+
+      - name: delivery_status_id
+        data_type: number
+        description: "Reference to the campaign\u0027s delivery status."
+
+      - name: emails_sent
+        data_type: number
+        description: "Total number of emails sent in the campaign."
+
+      - name: campaign_id
+        data_type: varchar
+        description: "Mailchimp-generated campaign identifier."
+
+      - name: campaign_long_archive_url
+        data_type: varchar
+        description: "Extended archive URL for the campaign."
+
+      - name: needs_block_refresh
+        data_type: boolean
+        description: "Indicates if block refresh is required."
+
+      - name: recipients_id
+        data_type: number
+        description: "Reference to the recipients list."
+
+      - name: report_summary_id
+        data_type: number
+        description: "Unique identifier for the campaign report."
+
+      - name: resendable
+        data_type: number
+        description: "Indicates whether the campaign can be resent."
+
+      - name: send_time
+        data_type: timestamp_ntz
+        description: "Timestamp when the campaign was sent."
+
+      - name: settings_id
+        data_type: number
+        description: "Reference to the campaign\u0027s settings."
+
+      - name: campaign_status
+        data_type: varchar
+        description: "Current status of the campaign (e.g., sent, scheduled)."
+
+      - name: tracking_id
+        data_type: number
+        description: "Reference to the campaign\u0027s tracking settings."
+
+      - name: campaign_type
+        data_type: varchar
+        description: "Type of campaign (e.g., regular, automated)."
+
+      - name: web_id
+        data_type: number
+        description: "Numeric ID for use in web URLs."
+
+      - name: click_rate
+        data_type: float
+        description: "Proportion of recipients who clicked on a link."
+
+      - name: clicks
+        data_type: number
+        description: "Total number of link clicks in the campaign."
+
+      - name: ecommerce_id
+        data_type: number
+        description: "Unique identifier for the ecommerce report."
+
+      - name: open_rate
+        data_type: float
+        description: "Proportion of recipients who opened the email."
+
+      - name: opens
+        data_type: number
+        description: "Total number of email opens."
+
+      - name: subscriber_clicks
+        data_type: number
+        description: "Number of unique subscribers who clicked."
+
+      - name: unique_opens
+        data_type: number
+        description: "Number of unique recipients who opened the email."
+
+      - name: total_orders
+        data_type: number
+        description: "Total number of orders generated from the campaign."
+
+      - name: total_revenue
+        data_type: number
+        description: "Total revenue generated from the campaign."
+
+      - name: total_spent
+        data_type: number
+        description: "Total amount spent by users from the campaign."

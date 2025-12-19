@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: jt_deng3_staging
+    description: ""
+    database: til_data_engineering
+    tables:
+      - name: airbyte_sync_mailchimp_data_raw_python_campaigns
+        description: ""
+        columns:
+          - name: json_data
+            data_type: variant
+            description: ""
+
+      - name: airbyte_sync_mailchimp_data_raw_python_email_activity
+        description: ""
+        columns:
+          - name: json_data
+            data_type: variant
+            description: ""

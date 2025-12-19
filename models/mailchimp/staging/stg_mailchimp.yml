@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_mailchimp_campaigns
+    description: ""
+    columns:
+      - name: json_data
+        data_type: variant
+        description: "json data"
+
+  - name: stg_mailchimp_email_activity
+    description: ""
+    columns:
+      - name: json_data
+        data_type: variant
+        description: "json data"

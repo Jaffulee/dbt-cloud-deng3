@@ -1,0 +1,279 @@
+version: 2
+
+models:
+  - name: int_amp_device_family_lookup
+    description: ""
+    columns:
+      - name: device_family_id
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: device_family
+        data_type: varchar
+        description: ""
+
+  - name: int_amp_device_lookup
+    description: ""
+    columns:
+      - name: device_type_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: device_name
+        data_type: varchar
+        description: ""
+
+      - name: device_family_id
+        data_type: number
+        description: ""
+
+  - name: int_amp_device
+    description: ""
+    columns:
+      - name: device_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: os_id
+        data_type: number
+        description: ""
+
+      - name: device_type_id
+        data_type: number
+        description: ""
+
+      - name: os_version
+        data_type: varchar
+        description: ""
+
+  - name: int_amp_event_city
+    description: ""
+    columns:
+      - name: city_name
+        data_type: varchar
+        description: ""
+
+      - name: city_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+  - name: int_amp_event_country
+    description: ""
+    columns:
+      - name: country_name
+        data_type: varchar
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+  - name: int_amp_event_properties
+    description: ""
+    columns:
+      - name: event_properties_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: page_url
+        data_type: varchar
+        description: ""
+
+      - name: referrer
+        data_type: varchar
+        description: ""
+
+      - name: page_counter
+        data_type: number
+        description: ""
+
+      - name: page_domain
+        data_type: varchar
+        description: ""
+
+      - name: page_path
+        data_type: varchar
+        description: ""
+
+      - name: page_title
+        data_type: varchar
+        description: ""
+
+      - name: page_location
+        data_type: varchar
+        description: ""
+
+      - name: referring_domain
+        data_type: varchar
+        description: ""
+
+      - name: element_text
+        data_type: varchar
+        description: ""
+
+      - name: video_url
+        data_type: varchar
+        description: ""
+
+  - name: int_amp_event_region
+    description: ""
+    columns:
+      - name: region_name
+        data_type: varchar
+        description: ""
+
+      - name: region_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+  - name: int_amp_event_user_properties
+    description: ""
+    columns:
+      - name: up_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: initial_utm_medium
+        data_type: varchar
+        description: ""
+
+      - name: initial_referring_domain
+        data_type: varchar
+        description: ""
+
+      - name: initial_utm_campaign
+        data_type: varchar
+        description: ""
+
+      - name: referrer
+        data_type: varchar
+        description: ""
+
+      - name: initial_utm_source
+        data_type: varchar
+        description: ""
+
+      - name: initial_referrer
+        data_type: varchar
+        description: ""
+
+      - name: referring_domain
+        data_type: varchar
+        description: ""
+
+  - name: int_amp_events
+    description: ""
+    columns:
+      - name: event_id
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: session_event_order
+        data_type: number
+        description: ""
+
+      - name: session_id
+        data_type: float
+        description: ""
+
+      - name: events_list_id
+        data_type: float
+        description: ""
+        data_tests:
+          - relationships:
+              to: ref('stg_jt_deng3_staging__amplitude_events_list_raw')
+              field: events_list_id
+
+      - name: event_time
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: event_properties_id
+        data_type: number
+        description: ""
+        data_tests:
+          - relationships:
+              to: ref('int_amp_event_properties')
+              field: event_properties_id
+
+      - name: user_properties_id
+        data_type: number
+        description: ""
+
+  - name: int_amp_os_lookup
+    description: ""
+    columns:
+      - name: os_id
+        data_type: number
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: os_name
+        data_type: varchar
+        description: ""
+
+  - name: int_amp_session
+    description: ""
+    columns:
+      - name: session_id
+        data_type: float
+        description: ""
+
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: device_id
+        data_type: number
+        description: ""
+
+      - name: location_id
+        data_type: number
+        description: ""
+
+  - name: int_parse_evp_json_cte
+    description: ""
+    columns:
+      - name: event_properties_id
+        data_type: number
+        description: ""
+
+      - name: json
+        data_type: variant
+        description: ""

@@ -1,0 +1,459 @@
+version: 2
+
+sources:
+  - name: jt_deng3_staging
+    description: ""
+    database: til_data_engineering
+    tables:
+      - name: amp_device_family_lookup
+        description: ""
+        columns:
+          - name: device_family_id
+            data_type: number
+            description: ""
+          - name: device_family
+            data_type: varchar
+            description: ""
+
+      - name: amp_device
+        description: ""
+        columns:
+          - name: device_id
+            data_type: number
+            description: ""
+          - name: os_id
+            data_type: number
+            description: ""
+          - name: device_type_id
+            data_type: number
+            description: ""
+          - name: os_version
+            data_type: varchar
+            description: ""
+
+      - name: amp_device_lookup
+        description: ""
+        columns:
+          - name: device_type_id
+            data_type: number
+            description: ""
+          - name: device_name
+            data_type: varchar
+            description: ""
+          - name: device_family_id
+            data_type: number
+            description: ""
+
+      - name: amp_event_city
+        description: ""
+        columns:
+          - name: city_name
+            data_type: varchar
+            description: ""
+          - name: city_id
+            data_type: number
+            description: ""
+
+      - name: amp_event_country
+        description: ""
+        columns:
+          - name: country_name
+            data_type: varchar
+            description: ""
+          - name: country_id
+            data_type: number
+            description: ""
+
+      - name: amp_event_properties
+        description: ""
+        columns:
+          - name: event_properties_id
+            data_type: number
+            description: ""
+          - name: page_url
+            data_type: varchar
+            description: ""
+          - name: referrer
+            data_type: varchar
+            description: ""
+          - name: page_counter
+            data_type: number
+            description: ""
+          - name: page_domain
+            data_type: varchar
+            description: ""
+          - name: page_path
+            data_type: varchar
+            description: ""
+          - name: page_title
+            data_type: varchar
+            description: ""
+          - name: page_location
+            data_type: varchar
+            description: ""
+          - name: referring_domain
+            data_type: varchar
+            description: ""
+          - name: element_text
+            data_type: varchar
+            description: ""
+          - name: video_url
+            data_type: varchar
+            description: ""
+
+      - name: amp_event_region
+        description: ""
+        columns:
+          - name: region_name
+            data_type: varchar
+            description: ""
+          - name: region_id
+            data_type: number
+            description: ""
+
+      - name: amp_event_user_properties
+        description: ""
+        columns:
+          - name: up_id
+            data_type: number
+            description: ""
+          - name: initial_utm_medium
+            data_type: varchar
+            description: ""
+          - name: initial_referring_domain
+            data_type: varchar
+            description: ""
+          - name: initial_utm_campaign
+            data_type: varchar
+            description: ""
+          - name: referrer
+            data_type: varchar
+            description: ""
+          - name: initial_utm_source
+            data_type: varchar
+            description: ""
+          - name: initial_referrer
+            data_type: varchar
+            description: ""
+          - name: referring_domain
+            data_type: varchar
+            description: ""
+
+      - name: amp_events
+        description: ""
+        columns:
+          - name: event_id
+            data_type: varchar
+            description: ""
+          - name: session_event_order
+            data_type: number
+            description: ""
+          - name: session_id
+            data_type: float
+            description: ""
+          - name: events_list_id
+            data_type: float
+            description: ""
+          - name: event_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: event_properties_id
+            data_type: number
+            description: ""
+          - name: user_properties_id
+            data_type: number
+            description: ""
+
+      - name: amp_events_list
+        description: ""
+        columns:
+          - name: events_list_id
+            data_type: float
+            description: ""
+          - name: event_name
+            data_type: varchar
+            description: ""
+
+      - name: amp_events_location
+        description: ""
+        columns:
+          - name: location_id
+            data_type: number
+            description: ""
+          - name: ip_address
+            data_type: varchar
+            description: ""
+          - name: city_id
+            data_type: number
+            description: ""
+          - name: country_id
+            data_type: number
+            description: ""
+          - name: region_id
+            data_type: number
+            description: ""
+
+      - name: amp_os_lookup
+        description: ""
+        columns:
+          - name: os_id
+            data_type: number
+            description: ""
+          - name: os_name
+            data_type: varchar
+            description: ""
+
+      - name: amp_session
+        description: ""
+        columns:
+          - name: session_id
+            data_type: float
+            description: ""
+          - name: user_id
+            data_type: varchar
+            description: ""
+          - name: device_id
+            data_type: varchar
+            description: ""
+          - name: location_id
+            data_type: number
+            description: ""
+
+      - name: amplitude_events_list_raw
+        description: ""
+        columns:
+          - name: _airbyte_raw_id
+            data_type: varchar
+            description: ""
+          - name: _airbyte_extracted_at
+            data_type: timestamp_ntz
+            description: ""
+          - name: _airbyte_meta
+            data_type: variant
+            description: ""
+          - name: _airbyte_generation_id
+            data_type: number
+            description: ""
+          - name: id
+            data_type: float
+            description: ""
+          - name: name
+            data_type: varchar
+            description: ""
+          - name: value
+            data_type: varchar
+            description: ""
+          - name: hidden
+            data_type: boolean
+            description: ""
+          - name: totals
+            data_type: float
+            description: ""
+          - name: deleted
+            data_type: boolean
+            description: ""
+          - name: display
+            data_type: varchar
+            description: ""
+          - name: autohidden
+            data_type: boolean
+            description: ""
+          - name: non_active
+            data_type: boolean
+            description: ""
+          - name: flow_hidden
+            data_type: boolean
+            description: ""
+          - name: in_waitroom
+            data_type: boolean
+            description: ""
+          - name: totals_delta
+            data_type: float
+            description: ""
+          - name: clusters_hidden
+            data_type: boolean
+            description: ""
+          - name: timeline_hidden
+            data_type: variant
+            description: ""
+
+      - name: amplitude_events_raw
+        description: ""
+        columns:
+          - name: _airbyte_raw_id
+            data_type: varchar
+            description: ""
+          - name: _airbyte_extracted_at
+            data_type: timestamp_ntz
+            description: ""
+          - name: _airbyte_meta
+            data_type: variant
+            description: ""
+          - name: _airbyte_generation_id
+            data_type: number
+            description: ""
+          - name: app
+            data_type: number
+            description: ""
+          - name: dma
+            data_type: varchar
+            description: ""
+          - name: adid
+            data_type: varchar
+            description: ""
+          - name: city
+            data_type: varchar
+            description: ""
+          - name: data
+            data_type: varchar
+            description: ""
+          - name: idfa
+            data_type: varchar
+            description: ""
+          - name: plan
+            data_type: variant
+            description: ""
+          - name: uuid
+            data_type: varchar
+            description: ""
+          - name: groups
+            data_type: varchar
+            description: ""
+          - name: paying
+            data_type: boolean
+            description: ""
+          - name: region
+            data_type: varchar
+            description: ""
+          - name: _schema
+            data_type: number
+            description: ""
+          - name: country
+            data_type: varchar
+            description: ""
+          - name: library
+            data_type: varchar
+            description: ""
+          - name: os_name
+            data_type: varchar
+            description: ""
+          - name: user_id
+            data_type: varchar
+            description: ""
+          - name: event_id
+            data_type: number
+            description: ""
+          - name: language
+            data_type: varchar
+            description: ""
+          - name: platform
+            data_type: varchar
+            description: ""
+          - name: data_type
+            data_type: varchar
+            description: ""
+          - name: device_id
+            data_type: varchar
+            description: ""
+          - name: source_id
+            data_type: varchar
+            description: ""
+          - name: _insert_id
+            data_type: varchar
+            description: ""
+          - name: event_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: event_type
+            data_type: varchar
+            description: ""
+          - name: ip_address
+            data_type: varchar
+            description: ""
+          - name: os_version
+            data_type: varchar
+            description: ""
+          - name: partner_id
+            data_type: varchar
+            description: ""
+          - name: session_id
+            data_type: float
+            description: ""
+          - name: _insert_key
+            data_type: varchar
+            description: ""
+          - name: device_type
+            data_type: varchar
+            description: ""
+          - name: sample_rate
+            data_type: variant
+            description: ""
+          - name: amplitude_id
+            data_type: number
+            description: ""
+          - name: device_brand
+            data_type: varchar
+            description: ""
+          - name: device_model
+            data_type: varchar
+            description: ""
+          - name: location_lat
+            data_type: float
+            description: ""
+          - name: location_lng
+            data_type: float
+            description: ""
+          - name: version_name
+            data_type: varchar
+            description: ""
+          - name: device_family
+            data_type: varchar
+            description: ""
+          - name: start_version
+            data_type: varchar
+            description: ""
+          - name: device_carrier
+            data_type: varchar
+            description: ""
+          - name: processed_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: user_properties
+            data_type: varchar
+            description: ""
+          - name: event_properties
+            data_type: varchar
+            description: ""
+          - name: group_properties
+            data_type: varchar
+            description: ""
+          - name: client_event_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: client_upload_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: server_upload_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: user_creation_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: device_manufacturer
+            data_type: varchar
+            description: ""
+          - name: amplitude_event_type
+            data_type: varchar
+            description: ""
+          - name: is_attribution_event
+            data_type: boolean
+            description: ""
+          - name: server_received_time
+            data_type: timestamp_ntz
+            description: ""
+          - name: global_user_properties
+            data_type: varchar
+            description: ""
+          - name: amplitude_attribution_ids
+            data_type: varchar
+            description: ""

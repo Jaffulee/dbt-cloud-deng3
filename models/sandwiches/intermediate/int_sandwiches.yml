@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: int_sandwiches_customers_with_name
+    description: ""
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id')}}"
+
+      - name: first_name
+        description: ""
+
+      - name: last_name
+        description: ""
+
+      - name: name
+        description: ""
+
+  - name: int_sandwiches_orders
+    description: ""
+    columns:
+      - name: order_id
+        description: "{{ doc('order_id')}}"
+
+      - name: customer_id
+        description: ""
+
+      - name: order_date
+        description: ""
+
+      - name: order_status
+        description: "{{ doc('order_status')}}"
+
+      - name: user_order_seq
+        description: ""
+
+      - name: is_not_return
+        description: ""
+
+  - name: int_sandwiches_successful_payments
+    description: ""
+    columns:
+      - name: id
+        description: "primary key of the table"
+
+      - name: order_id
+        description: ""
+
+      - name: payment_method
+        description: ""
+
+      - name: payment_status
+        description: ""
+
+      - name: amount
+        description: ""
+        data_tests:
+          - no_negative_values
+
+      - name: created
+        description: ""
